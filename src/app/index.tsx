@@ -279,7 +279,7 @@ function HomeScreen() {
                         componentId: 'posts-dark-mode-toggle'
                     },
                         React.createElement(MaterialIcons, {
-                            name: themeContext.darkMode ? 'wb_sunny' : 'bedtime',
+                            name: themeContext.darkMode ? 'wb-sunny' : 'bedtime',
                             size: 24,
                             color: state.theme.colors.textPrimary
                         })
@@ -442,13 +442,13 @@ function HomeScreen() {
     const contactScreenHandlers = {
         submitForm: function (state) {
             if (!state.name.trim() || !state.email.trim() || !state.subject.trim() || !state.message.trim()) {
-                Platform.OS === 'web' ? window.alert('Please fill in all fields') : Alert.alert('Error', 'Please fill in all fields');
+                Platform.OS === 'web' ? window.alert('Ju lutem plotësoni të gjitha fushat') : Alert.alert('Error', 'Ju lutem plotësoni të gjitha fushat');
                 return;
             }
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(state.email)) {
-                Platform.OS === 'web' ? window.alert('Please enter a valid email address') : Alert.alert('Error', 'Please enter a valid email address');
+                Platform.OS === 'web' ? window.alert('Ju lutem vendosni një adresë email të vlefshme') : Alert.alert('Error', 'Ju lutem vendosni një adresë email të vlefshme');
                 return;
             }
 
@@ -472,16 +472,16 @@ function HomeScreen() {
                 state.setSubject('');
                 state.setMessage('');
                 Platform.OS === 'web'
-                    ? window.alert('Your email app has been opened. The message is addressed to ' + contactRecipientEmail + '.')
-                    : Alert.alert('Success', 'Your email app has been opened. The message is addressed to ' + contactRecipientEmail + '.');
+                    ? window.alert('Aplikacioni juaj i email-it është hapur. Mesazhi është adresuar te ' + contactRecipientEmail + '.')
+                    : Alert.alert('Success', 'Aplikacioni juaj i email-it është hapur. Mesazhi është adresuar te ' + contactRecipientEmail + '.');
             };
 
             const handleFailure = function (error) {
                 console.error('Error opening mail app:', error);
                 state.setSubmitting(false);
                 Platform.OS === 'web'
-                    ? window.alert('Unable to open email app. Please send your message manually to ' + contactRecipientEmail + '.')
-                    : Alert.alert('Error', 'Unable to open email app. Please send your message manually to ' + contactRecipientEmail + '.');
+                    ? window.alert('Nuk mund të hapet aplikacioni i email-it. Ju lutem dërgoni mesazhin tuaj manualisht te ' + contactRecipientEmail + '.')
+                    : Alert.alert('Error', 'Nuk mund të hapet aplikacioni i email-it. Ju lutem dërgoni mesazhin tuaj manualisht te ' + contactRecipientEmail + '.');
             };
 
             if (Platform.OS === 'web') {
@@ -497,7 +497,7 @@ function HomeScreen() {
             Linking.canOpenURL(mailtoUrl)
                 .then(function (supported) {
                     if (!supported) {
-                        throw new Error('No email handler available');
+                        throw new Error('Nuk ka një aplikacion email-i të disponueshëm');
                     }
                     return Linking.openURL(mailtoUrl);
                 })
@@ -590,7 +590,7 @@ function HomeScreen() {
                         componentId: 'contact-dark-mode-toggle'
                     },
                         React.createElement(MaterialIcons, {
-                            name: themeContext.darkMode ? 'wb_sunny' : 'bedtime',
+                            name: themeContext.darkMode ? 'sunny' : 'bedtime',
                             size: 24,
                             color: state.theme.colors.textPrimary
                         })
