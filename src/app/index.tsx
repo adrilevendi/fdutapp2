@@ -7,6 +7,8 @@ function HomeScreen() {
     const WebView = require('react-native-webview').WebView;
     const { MaterialIcons } = require('@expo/vector-icons');
     const { createBottomTabNavigator } = require('@react-navigation/bottom-tabs');
+    const DeviceInfo = require('react-native-device-info');
+
     // const { createNativeStackNavigator } = require('@react-navigation/native-stack');
     // @end:imports
 
@@ -552,6 +554,7 @@ function HomeScreen() {
                 ) : null,
                 React.createElement(WebView, {
                     source: { uri: 'https://fdut.edu.al' },
+                    userAgent: " Safari/604.1" ,
                     onLoadStart: function () { setLoading(true); },
                     onLoadEnd: function () { setLoading(false); },
                     style: { flex: 1 },
